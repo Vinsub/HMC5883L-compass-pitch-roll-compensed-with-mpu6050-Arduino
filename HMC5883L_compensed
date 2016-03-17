@@ -1,0 +1,28 @@
+#include <math.h> 
+
+double Xmag = 524;
+double pitch = 25;
+double Ymag = 300;
+double roll = 25;
+double Zmag = 200;
+
+void setup() {
+Serial.begin(9600);
+
+}
+void loop() {
+ 
+
+
+  double Xh = Xmag * cos(pitch) + Ymag * sin(roll) * sin(pitch) - Zmag * cos(roll)
+  double Yh = Ymag * cos(roll) + Zmag * sin(roll)
+  float heading = atan ( Yh / Xh );
+  if(heading < 0)
+    heading += 2*PI;
+  if(heading > 2*PI)
+    heading -= 2*PI;
+  float headingDegrees = heading * 180/M_PI; 
+
+Serial.println(heading);
+
+  }
